@@ -9,7 +9,7 @@ git-clone-pack - Clones a repository by receiving packed objects.
 
 SYNOPSIS
 --------
-'git-clone-pack' [-q] [--exec=<git-upload-pack>] [<host>:]<directory> [<heads>...]
+'git-clone-pack' [-q] [--exec=<git-upload-pack>] [<host>:]<directory> [<head>...]
 
 DESCRIPTION
 -----------
@@ -36,10 +36,15 @@ OPTIONS
 	shells by having a lean .bashrc file (they set most of
 	the things up in .bash_profile).
 
-[<host>:]<directory::
-	The (possibly remote) repository to clone from.
+<host>::
+	A remote host that houses the repository.  When this
+	part is specified, 'git-upload-pack' is invoked via
+	ssh.
 
-<heads>...::
+<directory>::
+	The repository to sync from.
+
+<head>...::
 	The heads to update.  This is relative to $GIT_DIR
 	(e.g. "HEAD", "refs/heads/master").  When unspecified,
 	all heads are updated to match the remote repository.
