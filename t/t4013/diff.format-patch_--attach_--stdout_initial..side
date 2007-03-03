@@ -22,7 +22,7 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/x-patch;
  name="c7a2ab9e8eac7b117442a607d5a9b3950ae34d5a.diff"
 Content-Transfer-Encoding: 8bit
-Content-Disposition: inline;
+Content-Disposition: attachment;
  filename="c7a2ab9e8eac7b117442a607d5a9b3950ae34d5a.diff"
 
 diff --git a/dir/sub b/dir/sub
