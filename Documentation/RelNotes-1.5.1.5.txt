@@ -1,4 +1,4 @@
-GIT v1.5.1.5 Release Notes (draft)
+GIT v1.5.1.5 Release Notes
 ==========================
 
 Fixes since v1.5.1.4
@@ -40,9 +40,3 @@ Fixes since v1.5.1.4
     compilers on Sun.
 
   - Many many documentation fixes and updates.
-
---
-exec >/var/tmp/1
-O=v1.5.1.4-48-gcecb98a
-echo O=`git describe refs/heads/maint`
-git shortlog --no-merges $O..refs/heads/maint
