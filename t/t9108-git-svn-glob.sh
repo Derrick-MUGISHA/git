@@ -53,7 +53,8 @@ test_expect_success 'test refspec globbing' '
 	test "`git rev-parse refs/remotes/tags/end~1`" = \
 		"`git rev-parse refs/remotes/branches/start`" &&
 	test "`git rev-parse refs/remotes/branches/start~2`" = \
-		"`git rev-parse refs/remotes/trunk`"
+		"`git rev-parse refs/remotes/trunk`" &&
+	test_must_fail git rev-parse refs/remotes/tags/end@3
 	'
 
 echo try to try > expect.two
@@ -85,8 +86,8 @@ test_expect_success 'test left-hand-side only globbing' '
 	test_cmp expect.two output.two
 	'
 
-echo "Only one '*' wildcard expansion is supported (got 2): 'branches/*/*'" \
-     > expect.three
+echo "Only one set of wildcard directories" \
+     "(e.g. '*' or '*/*/*') is supported: 'branches/*/t/*'" > expect.three
 echo "" >> expect.three
 
 test_expect_success 'test disallow multi-globs' '
@@ -94,7 +95,7 @@ test_expect_success 'test disallow multi-globs' '
 	git config --add svn-remote.three.fetch \
 	                 trunk:refs/remotes/three/trunk &&
 	git config --add svn-remote.three.branches \
-	                 "branches/*/*:refs/remotes/three/branches/*" &&
+	                 "branches/*/t/*:refs/remotes/three/branches/*" &&
 	git config --add svn-remote.three.tags \
 	                 "tags/*/*:refs/remotes/three/tags/*" &&
 	(
