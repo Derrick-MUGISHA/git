@@ -261,5 +261,4 @@ Release/
 /contrib/libgit-rs/target
 /contrib/libgit-sys/target
 .gitignore
-config.bat
 node_modules
